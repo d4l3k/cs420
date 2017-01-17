@@ -1,5 +1,12 @@
 # 2.
-> (from Problem 4 in 3.2.3. Exercises from “Computational Geometry in C” by J. O’Rourke) Affine hulls. An affine combination of points $p_1, \ldots, p_n$ is a sum of the form $\alpha_1p_1 + \ldots +\alpha_np_n$, with $\alpha_1+\ldots+\alpha_n = 1$. Note this differs from the definition of a convex combination in that the condition $\alpha_i ≥ 0$ is dropped. What is the affine hull (the set of possible affine combinations) of two points in the plane? Three points? n > 3 points? What is the affine hull of two points in three dimensional space? Three points? Four points? n > 4 points?
+> (from Problem 4 in 3.2.3. Exercises from “Computational Geometry in C” by J.
+> O’Rourke) Affine hulls. An affine combination of points $p_1, \ldots, p_n$ is
+> a sum of the form $\alpha_1p_1 + \ldots +\alpha_np_n$, with
+> $\alpha_1+\ldots+\alpha_n = 1$. Note this differs from the definition of a
+> convex combination in that the condition $\alpha_i ≥ 0$ is dropped. What is
+> the affine hull (the set of possible affine combinations) of two points in the
+> plane? Three points? n > 3 points? What is the affine hull of two points in
+> three dimensional space? Three points? Four points? n > 4 points?
 
 
 The affine hull contains the convex hull of the points since it is a subset of
