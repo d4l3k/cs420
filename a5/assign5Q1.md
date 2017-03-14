@@ -19,11 +19,42 @@ The above diagram clearly shows that Even-Odd doesn't work.
 
 ## One that does work
 
-We can solve this using dynamic programming. If we start from one side and
-slowly build up, we can select the optimal set as we go. At every step we can
-either include a node if it's independent, or skip it in favor of the next node.
-This is similar to the largest subsequence problem.
+We can solve this using dynamic programming.  We can transform the path into an
+array of $n$ values with one representing the weight of every node.
 
-TODO: flesh out
+```javascript
+w = array of weights for all vertices
+n = number of vertices
 
-Ignore all vertices which have weights that are zero or negative.
+lookupTable = {}
+
+function solve(i) {
+  if (i >= n) {
+    return 0, [];
+  }
+  cached = lookupTable[i]
+  if (cached) {
+    return cached
+  }
+
+  takeVal, takeVertices = solve(i+2)
+  takeVal += w(i)
+  takeVertices += [i]
+
+  dontTakeVal, dontTakeVertices = solve(i+1)
+
+  if (takeVal > dontTakeVal) {
+    val = takeVal
+    vertices = takeVertices
+  } else {
+    val = dontTakeVal
+    vertices = dontTakeVertices
+  }
+
+  lookupTable[i] = (val, vertices)
+  return val, vertices
+}
+```
+
+This runs in $O(n)$ since there are $n$ entries in the `lookupTable` and solve
+takes a constant amount of time in each iteration.
